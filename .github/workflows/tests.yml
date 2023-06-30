@@ -1,15 +1,12 @@
 name: Tests
 
-on:
-    push:
-    pull_request:
-    workflow_dispatch:
+on: [ push ]
 
 permissions: read-all
 
 jobs:
     tests:
-        runs-on: ${{ matrix.os }}
+        runs-on: ubuntu-latest
 
         strategy:
             fail-fast: true
@@ -21,18 +18,16 @@ jobs:
         steps:
             -   name: Checkout code
                 uses: actions/checkout@v3
-                with:
-                    submodules: true
 
             -   name: Setup PHP
                 uses: shivammathur/setup-php@v2
                 with:
                     php-version: ${{ matrix.php }}
-                    extensions: curl, mbstring, zip, pcntl, pdo, pdo_sqlite, iconv, json, dom, curl, libxml, fileinfo, tokenizer, xml
+                    extensions: curl, mbstring, zip, pcntl, pdo, pdo_sqlite, iconv
                     coverage: none
 
             -   name: Install dependencies
                 run: composer update --prefer-dist --no-progress --no-interaction --no-suggest
 
-            -   name: Application code-style testing
+            -   name: Execute tests
                 run: php ./vendor/bin/pest --colors=always
