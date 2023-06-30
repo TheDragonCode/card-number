@@ -1,4 +1,4 @@
-# Card Number with Luhn algorithm
+# Card Number using Luhn's algorithm
 
 ![Luhn-algorithm card-number](https://preview.dragon-code.pro/Luhn-algorithm/card-number.svg?brand=php&preposition=with)
 
