@@ -77,21 +77,51 @@ You can also use the formatter to format the resulting value:
 
 ```php
 use DragonCode\CardNumber\CardNumber;
+use DragonCode\CardNumber\Formatters\BankFormatter;
 use DragonCode\CardNumber\Formatters\LoyaltyFormatter;
 
-$formatter = new LoyaltyFormatter();
+$loyalty = new LoyaltyFormatter();
+$bank    = new BankFormatter();
+ 
+CardNumber::generate(1, $loyalty); // 0018
+CardNumber::generate(2, $loyalty); // 0026
 
-CardNumber::generate(1, $formatter); // 0018
-CardNumber::generate(2, $formatter); // 0026
+CardNumber::generate(12345, $loyalty); // 123-455
+CardNumber::generate(23456, $loyalty); // 234-567
 
-CardNumber::generate(12345, $formatter); // 123-455
-CardNumber::generate(23456, $formatter); // 234-567
+CardNumber::generate(123456, $loyalty); // 123-4566
+CardNumber::generate(234567, $loyalty); // 234-5676
 
-CardNumber::generate(123456, $formatter); // 123-4566
-CardNumber::generate(234567, $formatter); // 234-5676
+CardNumber::generate(123456123, $loyalty); // 12-3456-1239
+CardNumber::generate(234567123, $loyalty); // 23-4567-1230
 
-CardNumber::generate(123456123, $formatter); // 12-3456-1239
-CardNumber::generate(234567123, $formatter); // 23-4567-1230
+CardNumber::generate(558047337202473, $bank); // 5580 4733 7202 4733
+CardNumber::generate(529391143678555, $bank); // 5293 9114 3678 5557
+```
+
+You can also create your own formatter.
+To do this, create a class and inherit it from the `DragonCode\CardNumber\Formatters\Formatter` abstract class:
+
+```php
+use DragonCode\CardNumber\Formatters\Formatter;
+
+class SomeFormatter extends Formatter
+{
+    protected int $splitLength = 6;
+
+    protected string $delimiter = '/';
+}
+```
+
+And use this one:
+
+```php
+use App\Cards\Formatters\SomeFormatter;
+use DragonCode\CardNumber\CardNumber;
+
+$formatter = new SomeFormatter();
+
+CardNumber::generate(558047337202473, $formatter); // 5580/473372/024733
 ```
 
 ## License
