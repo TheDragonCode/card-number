@@ -145,10 +145,11 @@ $customer = CustomerFactory::create()->level($user->loyalty_level)->customer($us
 
 return CardNumber::generate($customer, $formatter);
 // For example, 230-4001-2348
-//   23     - year
-//   04     - loyalty level
-//   001234 - user id
-//   8      - control digit
+//
+//     23     - year
+//     04     - loyalty level
+//     001234 - user id
+//     8      - control digit
 ```
 
 ## License
