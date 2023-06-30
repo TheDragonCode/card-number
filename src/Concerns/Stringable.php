@@ -7,6 +7,8 @@ namespace DragonCode\CardNumber\Concerns;
 use function mb_strlen;
 use function str_pad;
 
+use const STR_PAD_LEFT;
+
 trait Stringable
 {
     protected function length(string $number, int $offset = 0): int

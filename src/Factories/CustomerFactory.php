@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace DragonCode\CardNumber\Factories;
 
 use function date;
-use function implode;
 
 class CustomerFactory extends Factory
 {
@@ -40,7 +39,7 @@ class CustomerFactory extends Factory
 
     public function get(): string
     {
-        return implode('', [$this->year, $this->level, $this->customerId,]);
+        return $this->year . $this->level . $this->customerId;
     }
 
     protected function year(): string
