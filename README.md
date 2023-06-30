@@ -149,6 +149,11 @@ $formatter = SomeFormatter::create();
 CardNumber::generate(558047337202473, $formatter); // 5580/473372/024733
 ```
 
+> List of available formatters:
+> * `DragonCode\CardNumber\Formatters\DefaultFormatter`
+> * `DragonCode\CardNumber\Formatters\BankFormatter`
+> * `DragonCode\CardNumber\Formatters\LoyaltyFormatter`
+
 ### Factories
 
 In addition, you can specify factories as an incoming identifier parameter.
@@ -194,6 +199,10 @@ return CardNumber::generate($customer, $formatter);
 // 0012345 - client id
 // 2       - control digit
 ```
+
+> List of available factories:
+> * `DragonCode\CardNumber\Factories\BankFactory`
+> * `DragonCode\CardNumber\Factories\CustomerFactory`
 
 ### Laravel
 
