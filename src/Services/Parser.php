@@ -13,7 +13,6 @@ class Parser
     public function parse(string $number): array
     {
         $checksum = 0;
-        $control  = 0;
 
         $length = $this->length($number, -1);
 
@@ -24,14 +23,12 @@ class Parser
                 $digit *= 2;
 
                 $checksum += ($digit <= 9 ? $digit : $digit - 9);
-                $control  += ($digit <= 9 ? $digit : $digit - 9);
             }
             else {
                 $checksum += $digit;
-                $control  += ($i !== $length ? $digit : 0);
             }
         }
 
-        return [$checksum, $control];
+        return [$checksum, $checksum - $number[$length]];
     }
 }
