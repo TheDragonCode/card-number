@@ -2,8 +2,8 @@
 
 ![Luhn-algorithm card-number](https://preview.dragon-code.pro/Luhn-algorithm/card-number.svg?brand=php&preposition=with)
 
-[![Stable Version][badge_stable]][link_repo]
-[![Unstable Version][badge_unstable]][link_repo]
+[![Stable Version][badge_stable]][link_packagist]
+[![Unstable Version][badge_unstable]][link_packagist]
 [![Total Downloads][badge_downloads]][link_packagist]
 [![License][badge_license]][link_license]
 
@@ -110,5 +110,3 @@ This package is licensed under the [MIT License](LICENSE).
 [link_license]:     LICENSE
 
 [link_packagist]:   https://packagist.org/packages/dragon-code/card-number
-
-[link_repo]:        https://github.com/TheDragonCode/card-number
