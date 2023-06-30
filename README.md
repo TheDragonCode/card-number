@@ -152,6 +152,26 @@ return CardNumber::generate($customer, $formatter);
 //     8      - control digit
 ```
 
+```php
+use DragonCode\CardNumber\CardNumber;
+use DragonCode\CardNumber\Factories\BankFactory;
+use DragonCode\CardNumber\Formatters\BankFormatter;
+
+$formatter = BankFormatter::create();
+
+$customer = BankFactory::create()->paymentType(3)->bank(12, 45, 75)->client(12345);
+
+return CardNumber::generate($customer, $formatter);
+// 3012 4575 0012 3452
+//
+// 3       - payment type
+// 012     - bank ID
+// 45      - bank info
+// 75      - bank's program
+// 0012345 - client id
+// 2       - control digit
+```
+
 ## License
 
 This package is licensed under the [MIT License](LICENSE).
