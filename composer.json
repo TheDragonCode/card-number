@@ -48,6 +48,7 @@
         "php": "^8.1"
     },
     "require-dev": {
+        "illuminate/contracts": "^10.14",
         "pestphp/pest": "^2.8",
         "symfony/var-dumper": "^6.3"
     },

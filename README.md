@@ -172,6 +172,25 @@ return CardNumber::generate($customer, $formatter);
 // 2       - control digit
 ```
 
+### Laravel
+
+If you use the Laravel framework, you can also use the validation rule:
+
+```php
+use DragonCode\CardNumber\Laravel\Validations\Rules\CardNumberRule;
+use Illuminate\Foundation\Http\FormRequest;
+
+class SomeRequest extends FormRequest
+{
+    public function rules(): array
+    {
+        return [
+            'card_number' => ['required', new CardNumberRule()]
+        ];
+    }
+}
+```
+
 ## License
 
 This package is licensed under the [MIT License](LICENSE).
