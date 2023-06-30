@@ -1,0 +1,27 @@
+name: Code Style
+
+on: [ push, pull_request ]
+
+permissions: write-all
+
+jobs:
+    style:
+        runs-on: ubuntu-latest
+
+        steps:
+            -   name: Checkout code
+                uses: actions/checkout@v3
+
+            -   name: Check the code style
+                uses: TheDragonCode/codestyler@v3
+                if: ${{ github.event_name != 'push' || github.ref != 'refs/heads/main' }}
+                with:
+                    github_token: ${{ secrets.COMPOSER_TOKEN }}
+
+            -   name: Fix the code style
+                uses: TheDragonCode/codestyler@v3
+                if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' }}
+                with:
+                    github_token: ${{ secrets.COMPOSER_TOKEN }}
+                    fix: true
+                    editorconfig: false

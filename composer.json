@@ -1,0 +1,67 @@
+{
+    "name": "dragon-code/card-number",
+    "description": "Generating and validating a card number using the Luhn's algorithm",
+    "license": "MIT",
+    "type": "library",
+    "keywords": [
+        "credit card",
+        "luhn",
+        "credit",
+        "validator",
+        "validation",
+        "loyalty",
+        "debit",
+        "customers"
+    ],
+    "authors": [
+        {
+            "name": "Andrey Helldar",
+            "email": "helldar@dragon-code.pro",
+            "homepage": "https://github.com/andrey-helldar"
+        }
+    ],
+    "support": {
+        "issues": "https://github.com/TheDragonCode/card-number/issues",
+        "source": "https://github.com/TheDragonCode/card-number"
+    },
+    "funding": [
+        {
+            "type": "github",
+            "url": "https://github.com/sponsors/TheDragonCode"
+        },
+        {
+            "type": "open_collective",
+            "url": "https://opencollective.com/dragon-code"
+        },
+        {
+            "type": "boosty",
+            "url": "https://boosty.to/dragon-code"
+        },
+        {
+            "type": "yoomoney",
+            "url": "https://yoomoney.ru/to/410012608840929"
+        }
+    ],
+    "require": {
+        "php": "^8.1"
+    },
+    "require-dev": {
+        "pestphp/pest": "^2.8",
+        "symfony/var-dumper": "^6.3"
+    },
+    "minimum-stability": "stable",
+    "prefer-stable": true,
+    "autoload": {
+        "psr-4": {
+            "DragonCode\\CardNumber\\": "src/"
+        }
+    },
+    "config": {
+        "allow-plugins": {
+            "dragon-code/codestyler": true,
+            "pestphp/pest-plugin": true
+        },
+        "preferred-install": "dist",
+        "sort-packages": true
+    }
+}
