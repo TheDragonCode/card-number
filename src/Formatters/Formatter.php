@@ -22,11 +22,6 @@ abstract class Formatter
 
     protected string $delimiter = '-';
 
-    public function prepare(int|string $id): string
-    {
-        return (string) $id;
-    }
-
     public function format(string $number): string
     {
         $number = $this->strPad($number, $this->minCardLength);

@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace DragonCode\CardNumber\Services;
 
-use DragonCode\CardNumber\Exceptions\ControlNumberException;
 use DragonCode\CardNumber\Formatters\Formatter;
 
 class Generator
@@ -26,17 +25,12 @@ class Generator
             }
         }
 
-        throw new ControlNumberException($this->id);
-    }
-
-    protected function parse(string $id): int
-    {
-        return $this->parser->parse($id)[0];
+        return $number;
     }
 
     protected function prepare(): string
     {
-        return $this->formatter->prepare($this->id);
+        return (string) $this->id;
     }
 
     protected function format(string $number): string
