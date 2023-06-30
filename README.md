@@ -9,7 +9,7 @@
 
 ## Introduction
 
-Generation and validation by the Luhn algorithm of any cards: credit, customer loyalty and others.
+Generation and verification of card numbers using Luhn's algorithm: credit, customer loyalty and others.
 
 ## Installation
 

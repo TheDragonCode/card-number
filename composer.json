@@ -1,6 +1,6 @@
 {
     "name": "dragon-code/card-number",
-    "description": "Generating and validating a card number using the Luhn's algorithm",
+    "description": "Generation and verification of card numbers using Luhn's algorithm.",
     "license": "MIT",
     "type": "library",
     "keywords": [
