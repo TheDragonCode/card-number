@@ -218,7 +218,7 @@ it('must be valid in the loop', function () {
     $min = 1;
     $max = 9999;
 
-    for ($i = $min; $i <= $max; $i++) {
+    for ($i = $min; $i <= $max; ++$i) {
         isValidGenerated($i);
     }
 });

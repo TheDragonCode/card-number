@@ -17,7 +17,7 @@ class Parser
 
         $length = $this->length($number, -1);
 
-        for ($i = $length; $i >= 0; $i--) {
+        for ($i = $length; $i >= 0; --$i) {
             $digit = (int) $number[$i];
 
             if (($length - $i) % 2) {

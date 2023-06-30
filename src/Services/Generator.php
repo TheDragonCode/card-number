@@ -20,7 +20,7 @@ class Generator
     {
         $number = $this->prepare();
 
-        for ($i = 0; $i <= 9; $i++) {
+        for ($i = 0; $i <= 9; ++$i) {
             if ($this->isValid($number . $i)) {
                 return $this->format($number . $i);
             }
