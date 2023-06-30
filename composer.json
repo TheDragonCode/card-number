@@ -52,6 +52,9 @@
         "pestphp/pest": "^2.8",
         "symfony/var-dumper": "^6.3"
     },
+    "suggest": {
+        "dragon-code/translation-set": "Translation of validation rules into 78 localizations for Laravel Framework"
+    },
     "minimum-stability": "stable",
     "prefer-stable": true,
     "autoload": {
