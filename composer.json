@@ -5,13 +5,15 @@
     "type": "library",
     "keywords": [
         "credit card",
-        "luhn",
         "credit",
-        "validator",
-        "validation",
-        "loyalty",
+        "customers",
         "debit",
-        "customers"
+        "generation",
+        "generator",
+        "loyalty",
+        "luhn",
+        "validation",
+        "validator"
     ],
     "authors": [
         {
