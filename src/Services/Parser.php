@@ -21,14 +21,11 @@ class Parser
 
             if (($length - $i) % 2) {
                 $digit *= 2;
+            }
 
-                $checksum += ($digit <= 9 ? $digit : $digit - 9);
-            }
-            else {
-                $checksum += $digit;
-            }
+            $checksum += ($digit <= 9 ? $digit : $digit - 9);
         }
 
-        return [$checksum, $checksum - $number[$length]];
+        return [$checksum, $checksum - (int) $number[$length]];
     }
 }
