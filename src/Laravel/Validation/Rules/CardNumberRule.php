@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace DragonCode\CardNumber\Laravel\Validations\Rules;
+namespace DragonCode\CardNumber\Laravel\Validation\Rules;
 
 use Closure;
 use DragonCode\CardNumber\CardNumber;

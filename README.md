@@ -209,7 +209,7 @@ return CardNumber::generate($customer, $formatter);
 If you use the Laravel framework, you can also use the validation rule:
 
 ```php
-use DragonCode\CardNumber\Laravel\Validations\Rules\CardNumberRule;
+use DragonCode\CardNumber\Laravel\Validation\Rules\CardNumberRule;
 use Illuminate\Foundation\Http\FormRequest;
 
 class SomeRequest extends FormRequest
