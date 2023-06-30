@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace DragonCode\CardNumber\Formatters;
 
+use DragonCode\CardNumber\Concerns\Makeable;
 use DragonCode\CardNumber\Concerns\Stringable;
 
 use function array_map;
@@ -14,6 +15,7 @@ use function strrev;
 
 abstract class Formatter
 {
+    use Makeable;
     use Stringable;
 
     protected int $minCardLength = 4;

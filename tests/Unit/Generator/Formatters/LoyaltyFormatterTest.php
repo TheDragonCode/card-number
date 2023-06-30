@@ -5,7 +5,7 @@ declare(strict_types=1);
 use DragonCode\CardNumber\Formatters\LoyaltyFormatter;
 
 it('must be valid up to 99', function () {
-    $formatter = new LoyaltyFormatter();
+    $formatter = LoyaltyFormatter::create();
 
     generatedEquals(1, '0018', $formatter);
     generatedEquals(2, '0026', $formatter);
@@ -118,7 +118,7 @@ it('must be valid up to 99', function () {
 });
 
 it('must be valid between 100 and 999', function () {
-    $formatter = new LoyaltyFormatter();
+    $formatter = LoyaltyFormatter::create();
 
     generatedEquals(100, '1008', $formatter);
     generatedEquals(101, '1016', $formatter);
@@ -221,7 +221,7 @@ it('must be valid between 100 and 999', function () {
 });
 
 it('should separate 6 digits', function () {
-    $formatter = new LoyaltyFormatter();
+    $formatter = LoyaltyFormatter::create();
 
     generatedEquals(12345, '123-455', $formatter);
     generatedEquals(23456, '234-567', $formatter);
@@ -235,7 +235,7 @@ it('should separate 6 digits', function () {
 });
 
 it('should separate 7 digits', function () {
-    $formatter = new LoyaltyFormatter();
+    $formatter = LoyaltyFormatter::create();
 
     generatedEquals(123456, '123-4566', $formatter);
     generatedEquals(234567, '234-5676', $formatter);
@@ -249,7 +249,7 @@ it('should separate 7 digits', function () {
 });
 
 it('should separate 10 digits', function () {
-    $formatter = new LoyaltyFormatter();
+    $formatter = LoyaltyFormatter::create();
 
     generatedEquals(123456123, '12-3456-1239', $formatter);
     generatedEquals(234567123, '23-4567-1230', $formatter);

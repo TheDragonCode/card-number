@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace DragonCode\CardNumber;
 
+use DragonCode\CardNumber\Factories\Factory;
 use DragonCode\CardNumber\Formatters\DefaultFormatter;
 use DragonCode\CardNumber\Formatters\Formatter;
 use DragonCode\CardNumber\Services\Generator;
@@ -16,7 +17,7 @@ class CardNumber
         return (new Validator())->isValid((string) $number);
     }
 
-    public static function generate(int $id, Formatter $formatter = new DefaultFormatter()): string
+    public static function generate(int|string|Factory $id, Formatter $formatter = new DefaultFormatter()): string
     {
         return (new Generator($id, $formatter))->generate();
     }

@@ -5,7 +5,7 @@ declare(strict_types=1);
 use DragonCode\CardNumber\Formatters\BankFormatter;
 
 it('should be separated', function () {
-    $formatter = new BankFormatter();
+    $formatter = BankFormatter::create();
 
     generatedEquals(558047337202473, '5580 4733 7202 4733', $formatter);
     generatedEquals(529391143678555, '5293 9114 3678 5557', $formatter);

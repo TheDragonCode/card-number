@@ -80,8 +80,8 @@ use DragonCode\CardNumber\CardNumber;
 use DragonCode\CardNumber\Formatters\BankFormatter;
 use DragonCode\CardNumber\Formatters\LoyaltyFormatter;
 
-$loyalty = new LoyaltyFormatter();
-$bank    = new BankFormatter();
+$loyalty = LoyaltyFormatter::create();
+$bank    = BankFormatter::create();
  
 CardNumber::generate(1, $loyalty); // 0018
 CardNumber::generate(2, $loyalty); // 0026
@@ -98,6 +98,8 @@ CardNumber::generate(234567123, $loyalty); // 23-4567-1230
 CardNumber::generate(558047337202473, $bank); // 5580 4733 7202 4733
 CardNumber::generate(529391143678555, $bank); // 5293 9114 3678 5557
 ```
+
+### Formatters
 
 You can also create your own formatter.
 To do this, create a class and inherit it from the `DragonCode\CardNumber\Formatters\Formatter` abstract class:
@@ -119,9 +121,34 @@ And use this one:
 use App\Cards\Formatters\SomeFormatter;
 use DragonCode\CardNumber\CardNumber;
 
-$formatter = new SomeFormatter();
+$formatter = SomeFormatter::create();
 
 CardNumber::generate(558047337202473, $formatter); // 5580/473372/024733
+```
+
+### Factories
+
+In addition, you can specify factories as an incoming identifier parameter.
+In this way, you can form unique identification rules using fluent methods.
+
+This is useful when, for example, you create a customer loyalty card number and want to specify in its number the year
+of issue as well as its level.
+
+```php
+use DragonCode\CardNumber\CardNumber;
+use DragonCode\CardNumber\Factories\CustomerFactory;
+use DragonCode\CardNumber\Formatters\LoyaltyFormatter;
+
+$formatter = LoyaltyFormatter::create();
+
+$customer = CustomerFactory::create()->level($user->loyalty_level)->customer($user->id);
+
+return CardNumber::generate($customer, $formatter);
+// For example, 230-4001-2348
+//   23     - year
+//   04     - loyalty level
+//   001234 - user id
+//   8      - control digit
 ```
 
 ## License

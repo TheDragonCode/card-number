@@ -23,6 +23,7 @@
 */
 
 use DragonCode\CardNumber\CardNumber;
+use DragonCode\CardNumber\Factories\Factory;
 use DragonCode\CardNumber\Formatters\DefaultFormatter;
 use DragonCode\CardNumber\Formatters\Formatter;
 
@@ -54,7 +55,7 @@ function isValidGenerated(int|string $id): void
     isValid(generate($id));
 }
 
-function generatedEquals(int|string $id, string $expected, Formatter $formatter = new DefaultFormatter()): void
+function generatedEquals(int|string|Factory $id, string $expected, Formatter $formatter = new DefaultFormatter()): void
 {
     $result = generate($id, $formatter);
 
@@ -63,7 +64,7 @@ function generatedEquals(int|string $id, string $expected, Formatter $formatter 
     isValid($result);
 }
 
-function generate(int|string $id, Formatter $formatter = new DefaultFormatter()): string
+function generate(int|string|Factory $id, Formatter $formatter = new DefaultFormatter()): string
 {
     return CardNumber::generate($id, $formatter);
 }
