@@ -47,7 +47,7 @@ function isValid(int|string $number): void
 
 function isInvalid(int|string $number): void
 {
-    expect(CardNumber::isValid($number))->toBeFalse();
+    expect(CardNumber::isInvalid($number))->toBeTrue();
 }
 
 function isValidGenerated(int|string $id): void

@@ -30,6 +30,11 @@ class Validator
         return ($checksum % 10) === 0 && ($checksum - $control) == $number[$length - 1];
     }
 
+    public function isInvalid(string $number): bool
+    {
+        return ! $this->isValid($number);
+    }
+
     public function parse(string $number): array
     {
         return $this->parser->parse($number);

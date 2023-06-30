@@ -17,6 +17,11 @@ class CardNumber
         return (new Validator())->isValid((string) $number);
     }
 
+    public static function isInvalid(int|string $number): bool
+    {
+        return (new Validator())->isInvalid((string) $number);
+    }
+
     public static function generate(int|string|Factory $id, Formatter $formatter = new DefaultFormatter()): string
     {
         return (new Generator($id, $formatter))->generate();

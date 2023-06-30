@@ -40,8 +40,8 @@ For example:
 ```php
 use DragonCode\CardNumber\CardNumber;
 
-CardNumber::isValid(12); // false
 CardNumber::isValid(18); // true
+CardNumber::isValid(12); // false
 
 CardNumber::isValid('0018'); // true
 CardNumber::isValid('0019'); // false
@@ -57,6 +57,29 @@ CardNumber::isValid('5580 4733 7202 4732'); // false
 
 CardNumber::isValid('5580-4733x7202_47 33'); // true
 CardNumber::isValid('5580-4733x7202_47 32'); // false
+```
+
+You can also check for invalid numbers:
+```php
+use DragonCode\CardNumber\CardNumber;
+
+CardNumber::isInvalid(18); // false
+CardNumber::isInvalid(12); // true
+
+CardNumber::isInvalid('0018'); // false
+CardNumber::isInvalid('0019'); // true
+
+CardNumber::isInvalid('123-455'); // false
+CardNumber::isInvalid('123-454'); // true
+
+CardNumber::isInvalid('12-3456-1239'); // false
+CardNumber::isInvalid('12-3456-1230'); // true
+
+CardNumber::isInvalid('5580 4733 7202 4733'); // false
+CardNumber::isInvalid('5580 4733 7202 4732'); // true
+
+CardNumber::isInvalid('5580-4733x7202_47 33'); // false
+CardNumber::isInvalid('5580-4733x7202_47 32'); // true
 ```
 
 ### Generation
