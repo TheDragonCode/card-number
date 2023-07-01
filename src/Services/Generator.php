@@ -7,27 +7,32 @@ namespace DragonCode\CardNumber\Services;
 use DragonCode\CardNumber\Factories\Factory;
 use DragonCode\CardNumber\Formatters\Formatter;
 
+use function abs;
+
 class Generator
 {
     public function __construct(
         protected readonly Factory|int|string $id,
         protected readonly Formatter $formatter,
         protected readonly Validator $validator = new Validator(),
-        protected readonly Parser $parser = new Parser(
-        )
+        protected readonly Parser $parser = new Parser(),
     ) {}
 
     public function generate(): string
     {
-        $number = $this->prepare();
+        $number   = $this->prepare();
+        $checksum = $this->parse($number);
 
-        for ($i = 0; $i <= 9; ++$i) {
-            if ($this->isValid($number . $i)) {
-                return $this->format($number . $i);
-            }
+        if ($mod = $checksum % 10) {
+            return $this->format($number . abs(10 - $mod));
         }
 
-        return $number;
+        return $this->format($number . '0');
+    }
+
+    protected function parse(string $number): int
+    {
+        return $this->parser->parse($number . '0')[0];
     }
 
     protected function prepare(): string
