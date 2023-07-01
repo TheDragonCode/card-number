@@ -14,7 +14,6 @@ class Generator
     public function __construct(
         protected readonly Factory|int|string $id,
         protected readonly Formatter $formatter,
-        protected readonly Validator $validator = new Validator(),
         protected readonly Parser $parser = new Parser(),
     ) {}
 
@@ -47,10 +46,5 @@ class Generator
     protected function format(string $number): string
     {
         return $this->formatter->format($number);
-    }
-
-    protected function isValid(string $number): bool
-    {
-        return $this->validator->isValid($number);
     }
 }
