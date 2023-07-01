@@ -27,6 +27,7 @@ use DragonCode\CardNumber\Enums\CardType;
 use DragonCode\CardNumber\Factories\Factory;
 use DragonCode\CardNumber\Formatters\DefaultFormatter;
 use DragonCode\CardNumber\Formatters\Formatter;
+use DragonCode\CardNumber\Laravel\Validation\Rules\CardNumberRule;
 
 expect()->extend('toBeOne', fn () => $this->toBe(1));
 
@@ -56,7 +57,7 @@ function isValidGenerated(int|string $id): void
     isValid(generate($id));
 }
 
-function generatedEquals(int|string|Factory $id, string $expected, Formatter $formatter = new DefaultFormatter()): void
+function generatedEquals(Factory|int|string $id, string $expected, Formatter $formatter = new DefaultFormatter()): void
 {
     $result = generate($id, $formatter);
 
@@ -65,7 +66,19 @@ function generatedEquals(int|string|Factory $id, string $expected, Formatter $fo
     isValid($result);
 }
 
-function generate(int|string|Factory $id, Formatter $formatter = new DefaultFormatter()): string
+function generate(Factory|int|string $id, Formatter $formatter = new DefaultFormatter()): string
 {
     return CardNumber::generate($id, $formatter);
+}
+
+function validateRule(
+    CardNumberRule|string $rule,
+    int|string $cardNumber,
+    array|CardType|string|null $cardType = null
+): void {
+    $fail = fn (string $message) => throw new Exception($message);
+
+    $rule = new $rule($cardType);
+
+    $rule->validate('foo', $cardNumber, $fail);
 }

@@ -59,7 +59,44 @@ CardNumber::isValid('5580-4733x7202_47 33'); // true
 CardNumber::isValid('5580-4733x7202_47 32'); // false
 ```
 
+You can validate bank card numbers. To do this, pass the card type as the second argument:
+
+```php
+use DragonCode\CardNumber\CardNumber;
+use DragonCode\CardNumber\Enums\CardType;
+
+CardNumber::isValid('4026 8434 8316 8683', CardType::visa); // true
+CardNumber::isValid('4019 1404 0123 4567', CardType::visa); // true
+CardNumber::isValid('2730 1684 6416 1841', CardType::visa); // false
+CardNumber::isValid('2201 6868 4646 8444', CardType::visa); // false
+
+CardNumber::isValid('4026 8434 8316 8683', 'visa'); // true
+CardNumber::isValid('4019 1404 0123 4567', 'visa'); // true
+CardNumber::isValid('2730 1684 6416 1841', 'visa'); // false
+CardNumber::isValid('2201 6868 4646 8444', 'visa'); // false
+```
+
+List of available card types:
+
+| Bank Name          | Card Type            | Enum Type                                                  |
+|--------------------|----------------------|------------------------------------------------------------|
+| AmericanExpress    | `amex`               | `DragonCode\CardNumber\Enums\CardType::amex`               |
+| Dankort            | `dankort`            | `DragonCode\CardNumber\Enums\CardType::dankort`            |
+| DinersClub         | `dinersclub`         | `DragonCode\CardNumber\Enums\CardType::dinersclub`         |
+| Discovery          | `discovery`          | `DragonCode\CardNumber\Enums\CardType::discovery`          |
+| Forbrugsforeningen | `forbrugsforeningen` | `DragonCode\CardNumber\Enums\CardType::forbrugsforeningen` |
+| HiperCard          | `hipercard`          | `DragonCode\CardNumber\Enums\CardType::hipercard`          |
+| Jcb                | `jcb`                | `DragonCode\CardNumber\Enums\CardType::jcb`                |
+| Maestro            | `maestro`            | `DragonCode\CardNumber\Enums\CardType::maestro`            |
+| MasterCard         | `mastercard`         | `DragonCode\CardNumber\Enums\CardType::mastercard`         |
+| Mir                | `mir`                | `DragonCode\CardNumber\Enums\CardType::mir`                |
+| Troy               | `troy`               | `DragonCode\CardNumber\Enums\CardType::troy`               |
+| Unionpay           | `unionpay`           | `DragonCode\CardNumber\Enums\CardType::unionpay`           |
+| Visa               | `visa`               | `DragonCode\CardNumber\Enums\CardType::visa`               |
+| VisaElectron       | `visaelectron`       | `DragonCode\CardNumber\Enums\CardType::visaelectron`       |
+
 You can also check for invalid numbers:
+
 ```php
 use DragonCode\CardNumber\CardNumber;
 
@@ -218,6 +255,26 @@ class SomeRequest extends FormRequest
     {
         return [
             'card_number' => ['required', new CardNumberRule()]
+        ];
+    }
+}
+```
+
+You can also check bank cards:
+
+```php
+use DragonCode\CardNumber\Enums\CardType;use DragonCode\CardNumber\Laravel\Validation\Rules\CardNumberRule;use Illuminate\Foundation\Http\FormRequest;
+
+class SomeRequest extends FormRequest
+{
+    public function rules(): array
+    {
+        return [
+            'visa_card_1' => ['required', new CardNumberRule(CardType::visa)],
+            'visa_card_2' => ['required', new CardNumberRule('visa')],
+            
+            'few_cards' => ['required', new CardNumberRule([CardType::visa, CardType::masterCard])],
+            'few_cards' => ['required', new CardNumberRule(['visa', 'mastercard'])],
         ];
     }
 }

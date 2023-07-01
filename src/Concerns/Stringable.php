@@ -4,10 +4,10 @@ declare(strict_types=1);
 
 namespace DragonCode\CardNumber\Concerns;
 
+use const STR_PAD_LEFT;
+
 use function mb_strlen;
 use function str_pad;
-
-use const STR_PAD_LEFT;
 
 trait Stringable
 {
