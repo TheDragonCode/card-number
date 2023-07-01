@@ -15,10 +15,12 @@ use DragonCode\CardNumber\Cards\Jcb;
 use DragonCode\CardNumber\Cards\Maestro;
 use DragonCode\CardNumber\Cards\MasterCard;
 use DragonCode\CardNumber\Cards\Mir;
+use DragonCode\CardNumber\Cards\RalfRinger;
 use DragonCode\CardNumber\Cards\Troy;
 use DragonCode\CardNumber\Cards\UnionPay;
 use DragonCode\CardNumber\Cards\Visa;
 use DragonCode\CardNumber\Cards\VisaElectron;
+use DragonCode\CardNumber\Cards\YvesRocher;
 use DragonCode\CardNumber\Enums\CardType;
 use DragonCode\CardNumber\Factories\Factory;
 use DragonCode\CardNumber\Formatters\DefaultFormatter;
@@ -40,10 +42,12 @@ class CardNumber
             CardType::maestro            => Maestro::isValid($number),
             CardType::masterCard         => MasterCard::isValid($number),
             CardType::mir                => Mir::isValid($number),
+            CardType::ralfRinger         => RalfRinger::isValid($number),
             CardType::troy               => Troy::isValid($number),
             CardType::unionPay           => UnionPay::isValid($number),
             CardType::visa               => Visa::isValid($number),
             CardType::visaElectron       => VisaElectron::isValid($number),
+            CardType::yvesRocher         => YvesRocher::isValid($number),
             default                      => DefaultCard::isValid($number)
         };
     }

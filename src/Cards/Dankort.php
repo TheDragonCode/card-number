@@ -6,5 +6,5 @@ namespace DragonCode\CardNumber\Cards;
 
 class Dankort extends Card
 {
-    protected static string $pattern = '/^5019/';
+    protected static ?string $pattern = '/^5019/';
 }
