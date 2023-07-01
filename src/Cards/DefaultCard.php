@@ -6,8 +6,6 @@ namespace DragonCode\CardNumber\Cards;
 
 class DefaultCard extends Card
 {
-    protected static string $pattern = '';
-
     public static function isValid(int|string $cardNumber): bool
     {
         return static::isValidNumber(

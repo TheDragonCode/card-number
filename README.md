@@ -90,10 +90,12 @@ List of available card types:
 | Maestro            | `maestro`            | `DragonCode\CardNumber\Enums\CardType::maestro`            |
 | MasterCard         | `mastercard`         | `DragonCode\CardNumber\Enums\CardType::masterCard`         |
 | Mir                | `mir`                | `DragonCode\CardNumber\Enums\CardType::mir`                |
+| Ralf Ringer        | `ralfringer`         | `DragonCode\CardNumber\Enums\CardType::ralfRinger`         |
 | Troy               | `troy`               | `DragonCode\CardNumber\Enums\CardType::troy`               |
 | Unionpay           | `unionpay`           | `DragonCode\CardNumber\Enums\CardType::unionPay`           |
 | Visa               | `visa`               | `DragonCode\CardNumber\Enums\CardType::visa`               |
 | VisaElectron       | `visaelectron`       | `DragonCode\CardNumber\Enums\CardType::visaElectron`       |
+| Yves Rocher        | `yvesrocher`         | `DragonCode\CardNumber\Enums\CardType::yvesRocher`         |
 
 You can also check for invalid numbers:
 
