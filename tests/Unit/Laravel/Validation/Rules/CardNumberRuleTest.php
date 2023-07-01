@@ -31,13 +31,13 @@ it('must be a valid card number rule', function () {
 it('must be a invalid card number with enum', function () {
     expect(
         fn () => validateRule(CardNumberRule::class, '2131 1356 1381 3510', CardType::visa)
-    )->toThrow(Exception::class, 'The :attribute must be a valid card number.');
+    )->toThrow(Exception::class, 'The :attribute field must be a valid card number.');
 });
 
 it('must be a invalid card number with string', function () {
     expect(
         fn () => validateRule(CardNumberRule::class, '2131 1356 1381 3510', 'visa')
-    )->toThrow(Exception::class, 'The :attribute must be a valid card number.');
+    )->toThrow(Exception::class, 'The :attribute field must be a valid card number.');
 });
 
 it('should check for the valid card type', function () {
