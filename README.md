@@ -24,7 +24,7 @@ Or manually update `require` block of `composer.json` and run `composer update` 
 ```json
 {
     "require": {
-        "dragon-code/card-number": "^1.0"
+        "dragon-code/card-number": "^1.1"
     }
 }
 ```
