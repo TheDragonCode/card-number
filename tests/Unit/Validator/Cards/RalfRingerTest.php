@@ -28,7 +28,7 @@ it('must be an invalid card number', function () {
     isInvalid('3000 04674 2225', CardType::ralfRinger);
     isInvalid('3000 04571 4563', CardType::ralfRinger);
     isInvalid('3000 04177 5709', CardType::ralfRinger);
-    
+
     isInvalid('0247 3140 4123 4566', CardType::ralfRinger);
     isInvalid('5019 1404 0123 4564', CardType::ralfRinger);
 
