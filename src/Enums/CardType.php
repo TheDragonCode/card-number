@@ -20,8 +20,10 @@ enum CardType: string
     case maestro            = 'maestro';
     case masterCard         = 'mastercard';
     case mir                = 'mir';
+    case ralfRinger         = 'ralfringer';
     case troy               = 'troy';
     case unionPay           = 'unionpay';
     case visa               = 'visa';
     case visaElectron       = 'visaelectron';
+    case yvesRocher         = 'yvesrocher';
 }

@@ -6,5 +6,5 @@ namespace DragonCode\CardNumber\Cards;
 
 class Forbrugsforeningen extends Card
 {
-    protected static string $pattern = '/^600/';
+    protected static ?string $pattern = '/^600/';
 }

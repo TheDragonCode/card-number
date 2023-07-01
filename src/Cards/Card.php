@@ -13,7 +13,7 @@ use function preg_replace;
 
 abstract class Card
 {
-    protected static string $pattern;
+    protected static ?string $pattern = null;
 
     protected static array $numberLength = [16];
 
@@ -33,7 +33,11 @@ abstract class Card
 
     protected static function isValidPattern(string $number): bool
     {
-        return (bool) preg_match(static::$pattern, $number);
+        if ($pattern = static::$pattern) {
+            return (bool) preg_match($pattern, $number);
+        }
+
+        return true;
     }
 
     protected static function isValidNumber(string $number): bool
