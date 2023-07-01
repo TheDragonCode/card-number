@@ -10,10 +10,11 @@ use DragonCode\CardNumber\Formatters\Formatter;
 class Generator
 {
     public function __construct(
-        protected readonly int|string|Factory $id,
+        protected readonly Factory|int|string $id,
         protected readonly Formatter $formatter,
         protected readonly Validator $validator = new Validator(),
-        protected readonly Parser $parser = new Parser()
+        protected readonly Parser $parser = new Parser(
+        )
     ) {}
 
     public function generate(): string

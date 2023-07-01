@@ -53,7 +53,7 @@ class CardNumber
         return ! static::isValid($number, $cardType);
     }
 
-    public static function generate(int|string|Factory $id, Formatter $formatter = new DefaultFormatter()): string
+    public static function generate(Factory|int|string $id, Formatter $formatter = new DefaultFormatter()): string
     {
         return (new Generator($id, $formatter))->generate();
     }
