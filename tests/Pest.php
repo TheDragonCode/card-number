@@ -23,6 +23,7 @@
 */
 
 use DragonCode\CardNumber\CardNumber;
+use DragonCode\CardNumber\Enums\CardType;
 use DragonCode\CardNumber\Factories\Factory;
 use DragonCode\CardNumber\Formatters\DefaultFormatter;
 use DragonCode\CardNumber\Formatters\Formatter;
@@ -40,14 +41,14 @@ expect()->extend('toBeOne', fn () => $this->toBe(1));
 |
 */
 
-function isValid(int|string $number): void
+function isValid(int|string $number, CardType|string|null $cardType = null): void
 {
-    expect(CardNumber::isValid($number))->toBeTrue();
+    expect(CardNumber::isValid($number, $cardType))->toBeTrue();
 }
 
-function isInvalid(int|string $number): void
+function isInvalid(int|string $number, CardType|string|null $cardType = null): void
 {
-    expect(CardNumber::isInvalid($number))->toBeTrue();
+    expect(CardNumber::isInvalid($number, $cardType))->toBeTrue();
 }
 
 function isValidGenerated(int|string $id): void

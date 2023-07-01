@@ -45,7 +45,8 @@
         }
     ],
     "require": {
-        "php": "^8.1"
+        "php": "^8.1",
+        "archtechx/enums": "^0.3.2"
     },
     "require-dev": {
         "illuminate/contracts": "^10.14",

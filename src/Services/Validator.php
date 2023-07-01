@@ -18,7 +18,7 @@ class Validator
 
     public function isValid(string $number): bool
     {
-        $number = $this->clean($number);
+        $number = $this->clear($number);
         $length = $this->length($number);
 
         if ($number == 0 || $length === 1) {
@@ -30,17 +30,12 @@ class Validator
         return ($checksum % 10) === 0 && ($checksum - $control) == $number[$length - 1];
     }
 
-    public function isInvalid(string $number): bool
-    {
-        return ! $this->isValid($number);
-    }
-
     public function parse(string $number): array
     {
         return $this->parser->parse($number);
     }
 
-    protected function clean(string $number): string
+    protected function clear(string $number): string
     {
         return preg_replace('/\D/', '', $number);
     }
