@@ -6,6 +6,7 @@ namespace DragonCode\CardNumber;
 
 use DragonCode\CardNumber\Cards\AmericanExpress;
 use DragonCode\CardNumber\Cards\Dankort;
+use DragonCode\CardNumber\Cards\DefaultCard;
 use DragonCode\CardNumber\Cards\DinersClub;
 use DragonCode\CardNumber\Cards\Discovery;
 use DragonCode\CardNumber\Cards\Forbrugsforeningen;
@@ -23,7 +24,6 @@ use DragonCode\CardNumber\Factories\Factory;
 use DragonCode\CardNumber\Formatters\DefaultFormatter;
 use DragonCode\CardNumber\Formatters\Formatter;
 use DragonCode\CardNumber\Services\Generator;
-use DragonCode\CardNumber\Services\Validator;
 
 class CardNumber
 {
@@ -44,7 +44,7 @@ class CardNumber
             CardType::unionPay           => UnionPay::isValid($number),
             CardType::visa               => Visa::isValid($number),
             CardType::visaElectron       => VisaElectron::isValid($number),
-            default                      => (new Validator())->isValid((string) $number)
+            default                      => DefaultCard::isValid($number)
         };
     }
 
