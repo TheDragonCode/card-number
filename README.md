@@ -254,7 +254,7 @@ class SomeRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'card_number' => ['required', new CardNumberRule()]
+            'number' => ['required', new CardNumberRule()]
         ];
     }
 }
