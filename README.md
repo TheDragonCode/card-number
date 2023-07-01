@@ -80,20 +80,20 @@ List of available card types:
 
 | Bank Name          | Card Type            | Enum Type                                                  |
 |--------------------|----------------------|------------------------------------------------------------|
-| AmericanExpress    | `amex`               | `DragonCode\CardNumber\Enums\CardType::amex`               |
+| AmericanExpress    | `amex`               | `DragonCode\CardNumber\Enums\CardType::americanExpress`    |
 | Dankort            | `dankort`            | `DragonCode\CardNumber\Enums\CardType::dankort`            |
-| DinersClub         | `dinersclub`         | `DragonCode\CardNumber\Enums\CardType::dinersclub`         |
+| DinersClub         | `dinersclub`         | `DragonCode\CardNumber\Enums\CardType::dinersClub`         |
 | Discovery          | `discovery`          | `DragonCode\CardNumber\Enums\CardType::discovery`          |
 | Forbrugsforeningen | `forbrugsforeningen` | `DragonCode\CardNumber\Enums\CardType::forbrugsforeningen` |
-| HiperCard          | `hipercard`          | `DragonCode\CardNumber\Enums\CardType::hipercard`          |
+| HiperCard          | `hipercard`          | `DragonCode\CardNumber\Enums\CardType::hiperCard`          |
 | Jcb                | `jcb`                | `DragonCode\CardNumber\Enums\CardType::jcb`                |
 | Maestro            | `maestro`            | `DragonCode\CardNumber\Enums\CardType::maestro`            |
-| MasterCard         | `mastercard`         | `DragonCode\CardNumber\Enums\CardType::mastercard`         |
+| MasterCard         | `mastercard`         | `DragonCode\CardNumber\Enums\CardType::masterCard`         |
 | Mir                | `mir`                | `DragonCode\CardNumber\Enums\CardType::mir`                |
 | Troy               | `troy`               | `DragonCode\CardNumber\Enums\CardType::troy`               |
-| Unionpay           | `unionpay`           | `DragonCode\CardNumber\Enums\CardType::unionpay`           |
+| Unionpay           | `unionpay`           | `DragonCode\CardNumber\Enums\CardType::unionPay`           |
 | Visa               | `visa`               | `DragonCode\CardNumber\Enums\CardType::visa`               |
-| VisaElectron       | `visaelectron`       | `DragonCode\CardNumber\Enums\CardType::visaelectron`       |
+| VisaElectron       | `visaelectron`       | `DragonCode\CardNumber\Enums\CardType::visaElectron`       |
 
 You can also check for invalid numbers:
 
