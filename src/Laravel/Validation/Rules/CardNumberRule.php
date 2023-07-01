@@ -52,7 +52,7 @@ class CardNumberRule implements ValidationRule
 
     protected function throwCard(Closure $fail): void
     {
-        $fail('The :attribute must be a valid card number.')->translate();
+        $fail('The :attribute field must be a valid card number.')->translate();
     }
 
     protected function isInvalidType(bool|CardType|null $type): bool
