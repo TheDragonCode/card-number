@@ -263,7 +263,9 @@ class SomeRequest extends FormRequest
 You can also check bank cards:
 
 ```php
-use DragonCode\CardNumber\Enums\CardType;use DragonCode\CardNumber\Laravel\Validation\Rules\CardNumberRule;use Illuminate\Foundation\Http\FormRequest;
+use DragonCode\CardNumber\Enums\CardType;
+use DragonCode\CardNumber\Laravel\Validation\Rules\CardNumberRule;
+use Illuminate\Foundation\Http\FormRequest;
 
 class SomeRequest extends FormRequest
 {
