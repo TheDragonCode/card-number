@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace DragonCode\CardNumber\Validators\Banks;
 
-use DragonCode\CardNumber\Validators\Card;
+use DragonCode\CardNumber\Validators\CardValidator;
 
-class Maestro extends Card
+class Maestro extends CardValidator
 {
     protected static ?string $pattern = '/^(5(018|0[235]|[678])|6(1|39|7|8|9))/';
 

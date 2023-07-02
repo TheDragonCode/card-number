@@ -11,7 +11,7 @@ use function in_array;
 use function preg_match;
 use function preg_replace;
 
-abstract class Card
+abstract class CardValidator
 {
     use Stringable;
 

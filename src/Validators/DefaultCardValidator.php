@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace DragonCode\CardNumber\Validators;
 
-class DefaultCard extends Card
+class DefaultCardValidator extends CardValidator
 {
     public static function isValid(int|string $cardNumber): bool
     {

@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace DragonCode\CardNumber\Validators\Banks;
 
-use DragonCode\CardNumber\Validators\Card;
+use DragonCode\CardNumber\Validators\CardValidator;
 
-class AmericanExpress extends Card
+class AmericanExpress extends CardValidator
 {
     protected static ?string $pattern = '/^3[47][0-9]/';
 
