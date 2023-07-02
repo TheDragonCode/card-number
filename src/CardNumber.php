@@ -4,29 +4,29 @@ declare(strict_types=1);
 
 namespace DragonCode\CardNumber;
 
-use DragonCode\CardNumber\Cards\AmericanExpress;
-use DragonCode\CardNumber\Cards\Chars;
-use DragonCode\CardNumber\Cards\Dankort;
-use DragonCode\CardNumber\Cards\DefaultCard;
-use DragonCode\CardNumber\Cards\DinersClub;
-use DragonCode\CardNumber\Cards\Discovery;
-use DragonCode\CardNumber\Cards\Forbrugsforeningen;
-use DragonCode\CardNumber\Cards\HiperCard;
-use DragonCode\CardNumber\Cards\Jcb;
-use DragonCode\CardNumber\Cards\Maestro;
-use DragonCode\CardNumber\Cards\MasterCard;
-use DragonCode\CardNumber\Cards\Mir;
-use DragonCode\CardNumber\Cards\RalfRinger;
-use DragonCode\CardNumber\Cards\Troy;
-use DragonCode\CardNumber\Cards\UnionPay;
-use DragonCode\CardNumber\Cards\Visa;
-use DragonCode\CardNumber\Cards\VisaElectron;
-use DragonCode\CardNumber\Cards\YvesRocher;
 use DragonCode\CardNumber\Enums\CardType;
 use DragonCode\CardNumber\Factories\Factory;
 use DragonCode\CardNumber\Formatters\DefaultFormatter;
 use DragonCode\CardNumber\Formatters\Formatter;
 use DragonCode\CardNumber\Services\Generator;
+use DragonCode\CardNumber\Validators\Banks\AmericanExpress;
+use DragonCode\CardNumber\Validators\Banks\Dankort;
+use DragonCode\CardNumber\Validators\Banks\DinersClub;
+use DragonCode\CardNumber\Validators\Banks\Discovery;
+use DragonCode\CardNumber\Validators\Banks\Forbrugsforeningen;
+use DragonCode\CardNumber\Validators\Banks\HiperCard;
+use DragonCode\CardNumber\Validators\Banks\Jcb;
+use DragonCode\CardNumber\Validators\Banks\Maestro;
+use DragonCode\CardNumber\Validators\Banks\MasterCard;
+use DragonCode\CardNumber\Validators\Banks\Mir;
+use DragonCode\CardNumber\Validators\Banks\Troy;
+use DragonCode\CardNumber\Validators\Banks\UnionPay;
+use DragonCode\CardNumber\Validators\Banks\Visa;
+use DragonCode\CardNumber\Validators\Banks\VisaElectron;
+use DragonCode\CardNumber\Validators\DefaultCard;
+use DragonCode\CardNumber\Validators\Loyalty\Chars;
+use DragonCode\CardNumber\Validators\Loyalty\RalfRinger;
+use DragonCode\CardNumber\Validators\Loyalty\YvesRocher;
 
 class CardNumber
 {

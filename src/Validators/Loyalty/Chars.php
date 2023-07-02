@@ -2,9 +2,10 @@
 
 declare(strict_types=1);
 
-namespace DragonCode\CardNumber\Cards;
+namespace DragonCode\CardNumber\Validators\Loyalty;
 
 use DragonCode\CardNumber\Concerns\Charsable;
+use DragonCode\CardNumber\Validators\Card;
 
 use function array_keys;
 use function array_values;

@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace DragonCode\CardNumber\Cards;
+namespace DragonCode\CardNumber\Validators;
 
 use DragonCode\CardNumber\Concerns\Stringable;
 use DragonCode\CardNumber\Services\Validator;
