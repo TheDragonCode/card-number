@@ -6,7 +6,7 @@ namespace DragonCode\CardNumber\Validators\Banks;
 
 use DragonCode\CardNumber\Validators\CardValidator;
 
-class HiperCardValidator extends CardValidator
+class HiperCard extends CardValidator
 {
     protected static ?string $pattern = '/^(606282\d{7}(\d{3})?)|(3841\d{15})/';
 
