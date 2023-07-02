@@ -14,10 +14,10 @@ use DragonCode\CardNumber\Validators\Banks\Dankort;
 use DragonCode\CardNumber\Validators\Banks\DinersClub;
 use DragonCode\CardNumber\Validators\Banks\Discovery;
 use DragonCode\CardNumber\Validators\Banks\Forbrugsforeningen;
-use DragonCode\CardNumber\Validators\Banks\HiperCardValidator;
+use DragonCode\CardNumber\Validators\Banks\HiperCard;
 use DragonCode\CardNumber\Validators\Banks\Jcb;
 use DragonCode\CardNumber\Validators\Banks\Maestro;
-use DragonCode\CardNumber\Validators\Banks\MasterCardValidator;
+use DragonCode\CardNumber\Validators\Banks\MasterCard;
 use DragonCode\CardNumber\Validators\Banks\Mir;
 use DragonCode\CardNumber\Validators\Banks\Troy;
 use DragonCode\CardNumber\Validators\Banks\UnionPay;
@@ -46,10 +46,10 @@ class CardNumber
             CardType::dinersClub         => DinersClub::isValid($number),
             CardType::discovery          => Discovery::isValid($number),
             CardType::forbrugsforeningen => Forbrugsforeningen::isValid($number),
-            CardType::hiperCard          => HiperCardValidator::isValid($number),
+            CardType::hiperCard          => HiperCard::isValid($number),
             CardType::jcb                => Jcb::isValid($number),
             CardType::maestro            => Maestro::isValid($number),
-            CardType::masterCard         => MasterCardValidator::isValid($number),
+            CardType::masterCard         => MasterCard::isValid($number),
             CardType::mir                => Mir::isValid($number),
             CardType::ralfRinger         => RalfRinger::isValid($number),
             CardType::troy               => Troy::isValid($number),
