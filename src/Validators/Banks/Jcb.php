@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace DragonCode\CardNumber\Validators\Banks;
 
-use DragonCode\CardNumber\Validators\Card;
+use DragonCode\CardNumber\Validators\CardValidator;
 
-class Jcb extends Card
+class Jcb extends CardValidator
 {
     protected static ?string $pattern = '/^(?:2131|1800|35\d{3})/';
 

@@ -116,9 +116,9 @@ CardNumber::isValid('EKN-OSX'); // false
 CardNumber::isValid('EKN-56X'); // false
 ```
 
-List of available card types:
+List of available validation types:
 
-| Type               | Card Type            | Enum Type                                                  |
+| Type               | Type                 | Enum                                                       |
 |--------------------|----------------------|------------------------------------------------------------|
 | AmericanExpress    | `amex`               | `DragonCode\CardNumber\Enums\CardType::americanExpress`    |
 | Chars Number       | `chars`              | `DragonCode\CardNumber\Enums\CardType::chars`              |
@@ -137,6 +137,30 @@ List of available card types:
 | Visa               | `visa`               | `DragonCode\CardNumber\Enums\CardType::visa`               |
 | VisaElectron       | `visaelectron`       | `DragonCode\CardNumber\Enums\CardType::visaElectron`       |
 | Yves Rocher        | `yvesrocher`         | `DragonCode\CardNumber\Enums\CardType::yvesRocher`         |
+
+#### Custom Validators
+
+In some cases there may not be enough built-in validators and therefore you can easily use your own.
+To do this, create a class and inherit it from the abstract `DragonCode\CardNumber\Validators\CardValidator`,
+and then pass a reference to it in the `cardType` parameter:
+
+```php
+use DragonCode\CardNumber\CardNumber;
+use DragonCode\CardNumber\Validators\CardValidator;
+
+class SomeValidator extends CardValidator
+{
+    protected static ?string $pattern = '/^[3-5]{3}/';
+
+    protected static array $numberLength = [4];
+}
+
+CardNumber::isValid(3459, SomeValidator::class); // true
+CardNumber::isValid(2451, SomeValidator::class); // false
+
+CardNumber::isInvalid(3459, SomeValidator::class); // false
+CardNumber::isInvalid(2451, SomeValidator::class); // true
+```
 
 ### Generation
 

@@ -14,24 +14,31 @@ use DragonCode\CardNumber\Validators\Banks\Dankort;
 use DragonCode\CardNumber\Validators\Banks\DinersClub;
 use DragonCode\CardNumber\Validators\Banks\Discovery;
 use DragonCode\CardNumber\Validators\Banks\Forbrugsforeningen;
-use DragonCode\CardNumber\Validators\Banks\HiperCard;
+use DragonCode\CardNumber\Validators\Banks\HiperCardValidator;
 use DragonCode\CardNumber\Validators\Banks\Jcb;
 use DragonCode\CardNumber\Validators\Banks\Maestro;
-use DragonCode\CardNumber\Validators\Banks\MasterCard;
+use DragonCode\CardNumber\Validators\Banks\MasterCardValidator;
 use DragonCode\CardNumber\Validators\Banks\Mir;
 use DragonCode\CardNumber\Validators\Banks\Troy;
 use DragonCode\CardNumber\Validators\Banks\UnionPay;
 use DragonCode\CardNumber\Validators\Banks\Visa;
 use DragonCode\CardNumber\Validators\Banks\VisaElectron;
-use DragonCode\CardNumber\Validators\DefaultCard;
+use DragonCode\CardNumber\Validators\CardValidator;
+use DragonCode\CardNumber\Validators\DefaultCardValidator;
 use DragonCode\CardNumber\Validators\Loyalty\Chars;
 use DragonCode\CardNumber\Validators\Loyalty\RalfRinger;
 use DragonCode\CardNumber\Validators\Loyalty\YvesRocher;
+
+use function is_a;
 
 class CardNumber
 {
     public static function isValid(int|string $number, CardType|string|null $cardType = null): bool
     {
+        if (is_a($cardType, CardValidator::class, true)) {
+            return $cardType::isValid($number);
+        }
+
         return match (static::detectCardType($cardType)) {
             CardType::americanExpress    => AmericanExpress::isValid($number),
             CardType::chars              => Chars::isValid($number),
@@ -39,10 +46,10 @@ class CardNumber
             CardType::dinersClub         => DinersClub::isValid($number),
             CardType::discovery          => Discovery::isValid($number),
             CardType::forbrugsforeningen => Forbrugsforeningen::isValid($number),
-            CardType::hiperCard          => HiperCard::isValid($number),
+            CardType::hiperCard          => HiperCardValidator::isValid($number),
             CardType::jcb                => Jcb::isValid($number),
             CardType::maestro            => Maestro::isValid($number),
-            CardType::masterCard         => MasterCard::isValid($number),
+            CardType::masterCard         => MasterCardValidator::isValid($number),
             CardType::mir                => Mir::isValid($number),
             CardType::ralfRinger         => RalfRinger::isValid($number),
             CardType::troy               => Troy::isValid($number),
@@ -50,7 +57,7 @@ class CardNumber
             CardType::visa               => Visa::isValid($number),
             CardType::visaElectron       => VisaElectron::isValid($number),
             CardType::yvesRocher         => YvesRocher::isValid($number),
-            default                      => DefaultCard::isValid($number)
+            default                      => DefaultCardValidator::isValid($number)
         };
     }
 
