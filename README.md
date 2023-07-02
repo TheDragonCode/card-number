@@ -76,27 +76,6 @@ CardNumber::isValid('2730 1684 6416 1841', 'visa'); // false
 CardNumber::isValid('2201 6868 4646 8444', 'visa'); // false
 ```
 
-List of available card types:
-
-| Bank Name          | Card Type            | Enum Type                                                  |
-|--------------------|----------------------|------------------------------------------------------------|
-| AmericanExpress    | `amex`               | `DragonCode\CardNumber\Enums\CardType::americanExpress`    |
-| Dankort            | `dankort`            | `DragonCode\CardNumber\Enums\CardType::dankort`            |
-| DinersClub         | `dinersclub`         | `DragonCode\CardNumber\Enums\CardType::dinersClub`         |
-| Discovery          | `discovery`          | `DragonCode\CardNumber\Enums\CardType::discovery`          |
-| Forbrugsforeningen | `forbrugsforeningen` | `DragonCode\CardNumber\Enums\CardType::forbrugsforeningen` |
-| HiperCard          | `hipercard`          | `DragonCode\CardNumber\Enums\CardType::hiperCard`          |
-| Jcb                | `jcb`                | `DragonCode\CardNumber\Enums\CardType::jcb`                |
-| Maestro            | `maestro`            | `DragonCode\CardNumber\Enums\CardType::maestro`            |
-| MasterCard         | `mastercard`         | `DragonCode\CardNumber\Enums\CardType::masterCard`         |
-| Mir                | `mir`                | `DragonCode\CardNumber\Enums\CardType::mir`                |
-| Ralf Ringer        | `ralfringer`         | `DragonCode\CardNumber\Enums\CardType::ralfRinger`         |
-| Troy               | `troy`               | `DragonCode\CardNumber\Enums\CardType::troy`               |
-| Unionpay           | `unionpay`           | `DragonCode\CardNumber\Enums\CardType::unionPay`           |
-| Visa               | `visa`               | `DragonCode\CardNumber\Enums\CardType::visa`               |
-| VisaElectron       | `visaelectron`       | `DragonCode\CardNumber\Enums\CardType::visaElectron`       |
-| Yves Rocher        | `yvesrocher`         | `DragonCode\CardNumber\Enums\CardType::yvesRocher`         |
-
 You can also check for invalid numbers:
 
 ```php
@@ -120,6 +99,44 @@ CardNumber::isInvalid('5580 4733 7202 4732'); // true
 CardNumber::isInvalid('5580-4733x7202_47 33'); // false
 CardNumber::isInvalid('5580-4733x7202_47 32'); // true
 ```
+
+In addition to numerical values, you can also validate number-letter combinations. For example:
+
+```php
+use DragonCode\CardNumber\CardNumber;
+use DragonCode\CardNumber\Enums\CardType;
+
+CardNumber::isValid('EKN-OSX', CardType::chars); // true
+CardNumber::isValid('EKN-56X', CardType::chars); // true
+
+CardNumber::isValid('ekn-osx', 'chars'); // true
+CardNumber::isValid('ekn-56x', 'chars'); // true
+
+CardNumber::isValid('EKN-OSX'); // false
+CardNumber::isValid('EKN-56X'); // false
+```
+
+List of available card types:
+
+| Type               | Card Type            | Enum Type                                                  |
+|--------------------|----------------------|------------------------------------------------------------|
+| AmericanExpress    | `amex`               | `DragonCode\CardNumber\Enums\CardType::americanExpress`    |
+| Chars Number       | `chars`              | `DragonCode\CardNumber\Enums\CardType::chars`              |
+| Dankort            | `dankort`            | `DragonCode\CardNumber\Enums\CardType::dankort`            |
+| DinersClub         | `dinersclub`         | `DragonCode\CardNumber\Enums\CardType::dinersClub`         |
+| Discovery          | `discovery`          | `DragonCode\CardNumber\Enums\CardType::discovery`          |
+| Forbrugsforeningen | `forbrugsforeningen` | `DragonCode\CardNumber\Enums\CardType::forbrugsforeningen` |
+| HiperCard          | `hipercard`          | `DragonCode\CardNumber\Enums\CardType::hiperCard`          |
+| Jcb                | `jcb`                | `DragonCode\CardNumber\Enums\CardType::jcb`                |
+| Maestro            | `maestro`            | `DragonCode\CardNumber\Enums\CardType::maestro`            |
+| MasterCard         | `mastercard`         | `DragonCode\CardNumber\Enums\CardType::masterCard`         |
+| Mir                | `mir`                | `DragonCode\CardNumber\Enums\CardType::mir`                |
+| Ralf Ringer        | `ralfringer`         | `DragonCode\CardNumber\Enums\CardType::ralfRinger`         |
+| Troy               | `troy`               | `DragonCode\CardNumber\Enums\CardType::troy`               |
+| Unionpay           | `unionpay`           | `DragonCode\CardNumber\Enums\CardType::unionPay`           |
+| Visa               | `visa`               | `DragonCode\CardNumber\Enums\CardType::visa`               |
+| VisaElectron       | `visaelectron`       | `DragonCode\CardNumber\Enums\CardType::visaElectron`       |
+| Yves Rocher        | `yvesrocher`         | `DragonCode\CardNumber\Enums\CardType::yvesRocher`         |
 
 ### Generation
 
@@ -192,6 +209,20 @@ CardNumber::generate(558047337202473, $formatter); // 5580/473372/024733
 > * `DragonCode\CardNumber\Formatters\DefaultFormatter`
 > * `DragonCode\CardNumber\Formatters\BankFormatter`
 > * `DragonCode\CardNumber\Formatters\LoyaltyFormatter`
+> * `DragonCode\CardNumber\Formatters\LoyaltyCharFormatter`
+
+In addition to numeric formatters, you can also use number-letter combinations.
+For example, using the "LoyaltyCharsFormatter" formatter, you can generate a letter code instead of a numeric number,
+which will be valid when verified by the Luhn's algorithm:
+
+```php
+use DragonCode\CardNumber\CardNumber;
+use DragonCode\CardNumber\Formatters\LoyaltyCharFormatter;
+
+$formatter = LoyaltyCharFormatter::create();
+
+CardNumber::generate(345678123, $formatter); // KN-OSXY-AEKF
+```
 
 ### Factories
 

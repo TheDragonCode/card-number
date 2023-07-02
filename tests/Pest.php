@@ -57,13 +57,17 @@ function isValidGenerated(int|string $id): void
     isValid(generate($id));
 }
 
-function generatedEquals(Factory|int|string $id, string $expected, Formatter $formatter = new DefaultFormatter()): void
-{
+function generatedEquals(
+    Factory|int|string $id,
+    string $expected,
+    Formatter $formatter = new DefaultFormatter(),
+    CardType|string|null $cardType = null
+): void {
     $result = generate($id, $formatter);
 
     expect($result)->toBeString()->toBe($expected);
 
-    isValid($result);
+    isValid($result, $cardType);
 }
 
 function generate(Factory|int|string $id, Formatter $formatter = new DefaultFormatter()): string

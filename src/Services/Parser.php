@@ -14,7 +14,7 @@ class Parser
     {
         $checksum = 0;
 
-        $length = $this->length($number, -1);
+        $length = static::length($number, -1);
 
         for ($i = $length; $i >= 0; --$i) {
             $digit = (int) $number[$i];

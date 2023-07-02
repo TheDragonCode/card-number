@@ -4,15 +4,17 @@ declare(strict_types=1);
 
 namespace DragonCode\CardNumber\Cards;
 
+use DragonCode\CardNumber\Concerns\Stringable;
 use DragonCode\CardNumber\Services\Validator;
 
 use function in_array;
-use function mb_strlen;
 use function preg_match;
 use function preg_replace;
 
 abstract class Card
 {
+    use Stringable;
+
     protected static ?string $pattern = null;
 
     protected static array $numberLength = [16];
@@ -28,7 +30,11 @@ abstract class Card
 
     protected static function isValidLength(string $number): bool
     {
-        return in_array(static::length($number), static::$numberLength, true);
+        if ($length = static::$numberLength) {
+            return in_array(static::length($number), $length, true);
+        }
+
+        return true;
     }
 
     protected static function isValidPattern(string $number): bool
@@ -43,11 +49,6 @@ abstract class Card
     protected static function isValidNumber(string $number): bool
     {
         return (new Validator())->isValid($number);
-    }
-
-    protected static function length(string $number): int
-    {
-        return mb_strlen($number, 'utf8');
     }
 
     protected static function clear(int|string $number): string

@@ -26,9 +26,14 @@ abstract class Formatter
 
     public function format(string $number): string
     {
-        $number = $this->strPad($number, $this->minCardLength);
-        $length = $this->length($number);
+        $number = static::strPad($number, $this->minCardLength);
+        $length = static::length($number);
 
+        return $this->pretty($number, $length);
+    }
+
+    protected function pretty(string $number, int $length): string
+    {
         return match (true) {
             $length <= 4 => $number,
             $length <= 6 => $this->split($number, 3),

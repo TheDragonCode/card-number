@@ -16,9 +16,9 @@ class Validator
 
     public function isValid(string $number): bool
     {
-        $length = $this->length($number);
+        $length = static::length($number);
 
-        if ($number == 0 || $length === 1) {
+        if ($number == 0 || $length <= 1) {
             return false;
         }
 

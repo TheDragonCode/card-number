@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace DragonCode\CardNumber;
 
 use DragonCode\CardNumber\Cards\AmericanExpress;
+use DragonCode\CardNumber\Cards\Chars;
 use DragonCode\CardNumber\Cards\Dankort;
 use DragonCode\CardNumber\Cards\DefaultCard;
 use DragonCode\CardNumber\Cards\DinersClub;
@@ -33,6 +34,7 @@ class CardNumber
     {
         return match (static::detectCardType($cardType)) {
             CardType::americanExpress    => AmericanExpress::isValid($number),
+            CardType::chars              => Chars::isValid($number),
             CardType::dankort            => Dankort::isValid($number),
             CardType::dinersClub         => DinersClub::isValid($number),
             CardType::discovery          => Discovery::isValid($number),

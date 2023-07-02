@@ -21,14 +21,14 @@ class CustomerFactory extends Factory
 
     public function level(int $level): static
     {
-        $this->level = $this->strPad($level, 2);
+        $this->level = static::strPad($level, 2);
 
         return $this;
     }
 
     public function customer(int $customerId): static
     {
-        $this->customerId = $this->strPad($customerId, 6);
+        $this->customerId = static::strPad($customerId, 6);
 
         return $this;
     }
