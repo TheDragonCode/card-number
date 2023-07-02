@@ -118,7 +118,7 @@ CardNumber::isValid('EKN-56X'); // false
 
 List of available validation types:
 
-| Type               | Type                 | Enum                                                       |
+| Type               | Code                 | Enum                                                       |
 |--------------------|----------------------|------------------------------------------------------------|
 | AmericanExpress    | `amex`               | `DragonCode\CardNumber\Enums\CardType::americanExpress`    |
 | Chars Number       | `chars`              | `DragonCode\CardNumber\Enums\CardType::chars`              |
