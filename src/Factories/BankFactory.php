@@ -25,16 +25,16 @@ class BankFactory extends Factory
 
     public function bank(int|string $id, int|string $info, int|string $program): static
     {
-        $this->bankNumber  = $this->strPad($id, 3);
-        $this->bankInfo    = $this->strPad($info, 2);
-        $this->bankProgram = $this->strPad($program, 2);
+        $this->bankNumber  = static::strPad($id, 3);
+        $this->bankInfo    = static::strPad($info, 2);
+        $this->bankProgram = static::strPad($program, 2);
 
         return $this;
     }
 
     public function client(int|string $number): static
     {
-        $this->clientId = $this->strPad($number, 7);
+        $this->clientId = static::strPad($number, 7);
 
         return $this;
     }

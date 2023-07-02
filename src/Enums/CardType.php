@@ -11,6 +11,7 @@ enum CardType: string
     use Values;
 
     case americanExpress    = 'amex';
+    case chars              = 'chars';
     case dankort            = 'dankort';
     case dinersClub         = 'dinersclub';
     case discovery          = 'discovery';

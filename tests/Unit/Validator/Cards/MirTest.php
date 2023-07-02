@@ -6,6 +6,7 @@ use DragonCode\CardNumber\Enums\CardType;
 
 it('must be an valid card number', function () {
     isValid('2201 6868 4646 8444', CardType::mir);
+    isValid('220 1234 5678 9012 3456', CardType::mir);
 });
 
 it('must be an invalid card number', function () {
