@@ -38,14 +38,14 @@ class Chars extends Card
 
     protected static function clear(int|string $number): string
     {
-        return preg_replace("/[^\w]/", '', static::lower($number));
+        return preg_replace('/[^\w]/', '', static::lower($number));
     }
 
     protected static function isValidChars(string $number): bool
     {
         $chars = static::charsPattern();
 
-        return ! preg_match("/[^$chars\d]/", $number);
+        return ! preg_match("/[^$chars\\d]/", $number);
     }
 
     protected static function charsPattern(): string
