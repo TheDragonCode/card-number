@@ -29,8 +29,6 @@ use DragonCode\CardNumber\Formatters\DefaultFormatter;
 use DragonCode\CardNumber\Formatters\Formatter;
 use DragonCode\CardNumber\Laravel\Validation\Rules\CardNumberRule;
 
-expect()->extend('toBeOne', fn () => $this->toBe(1));
-
 /*
 |--------------------------------------------------------------------------
 | Functions
