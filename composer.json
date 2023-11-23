@@ -67,8 +67,8 @@
     "config": {
         "allow-plugins": {
             "dragon-code/codestyler": true,
-            "pestphp/pest-plugin": true,
             "ergebnis/composer-normalize": true,
+            "pestphp/pest-plugin": true,
             "symfony/thanks": true
         },
         "preferred-install": "dist",
