@@ -45,9 +45,9 @@
         "archtechx/enums": "^0.3.2"
     },
     "require-dev": {
-        "illuminate/contracts": "^10.14",
+        "illuminate/contracts": "^10.14 || ^11.0",
         "pestphp/pest": "^2.8",
-        "symfony/var-dumper": "^6.3"
+        "symfony/var-dumper": "^6.3 || ^7.0"
     },
     "suggest": {
         "dragon-code/translation-set": "Translation of validation rules into 78 localizations for Laravel Framework"
