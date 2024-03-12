@@ -24,7 +24,7 @@ Or manually update `require` block of `composer.json` and run `composer update` 
 ```json
 {
     "require": {
-        "dragon-code/card-number": "^1.1"
+        "dragon-code/card-number": "^1.5"
     }
 }
 ```
@@ -118,7 +118,7 @@ CardNumber::isValid('EKN-56X'); // false
 
 List of available validation types:
 
-| Type               | Type                 | Enum                                                       |
+| Type               | Code                 | Enum                                                       |
 |--------------------|----------------------|------------------------------------------------------------|
 | AmericanExpress    | `amex`               | `DragonCode\CardNumber\Enums\CardType::americanExpress`    |
 | Chars Number       | `chars`              | `DragonCode\CardNumber\Enums\CardType::chars`              |
@@ -236,8 +236,9 @@ CardNumber::generate(558047337202473, $formatter); // 5580/473372/024733
 > * `DragonCode\CardNumber\Formatters\LoyaltyCharFormatter`
 
 In addition to numeric formatters, you can also use number-letter combinations.
-For example, using the "LoyaltyCharsFormatter" formatter, you can generate a letter code instead of a numeric number,
-which will be valid when verified by the Luhn's algorithm:
+For example, using the `DragonCode\CardNumber\Formatters\LoyaltyCharFormatter` formatter,
+you can generate a letter code instead of a numeric number, which will be valid when
+verified by the Luhn's algorithm:
 
 ```php
 use DragonCode\CardNumber\CardNumber;
