@@ -12,9 +12,7 @@ it('must be the customer\'s factory', function () {
     $factory2 = CustomerFactory::create()->level(3)->customer(12345);
     $factory3 = CustomerFactory::create()->level(1)->customer(123456);
 
-    $year = date('y');
-
-    generatedEquals($factory1, $year . '0-4001-2346', $formatter);
-    generatedEquals($factory2, $year . '0-3012-3459', $formatter);
-    generatedEquals($factory3, $year . '0-1123-4564', $formatter);
+    generatedEquals($factory1, '250-4001-2343', $formatter);
+    generatedEquals($factory2, '250-3012-3456', $formatter);
+    generatedEquals($factory3, '250-1123-4561', $formatter);
 });
