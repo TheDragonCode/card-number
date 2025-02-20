@@ -42,7 +42,7 @@
     },
     "require-dev": {
         "illuminate/contracts": "^10.14 || ^11.0",
-        "pestphp/pest": "^3.0",
+        "pestphp/pest": "^2.8 || ^3.0",
         "symfony/var-dumper": "^6.3 || ^7.0"
     },
     "suggest": {
