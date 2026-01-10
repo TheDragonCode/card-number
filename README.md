@@ -1,6 +1,6 @@
 # Card Number using Luhn's algorithm
 
-![Luhn-algorithm card-number](https://preview.dragon-code.pro/Luhn's-algorithm/card-number.svg?brand=php&preposition=with)
+![Luhn-algorithm card-number](https://banners.beyondco.de/Card%20Number.png?theme=light&packageManager=composer+require&packageName=dragon-code%2Fcard-number&pattern=topography&style=style_2&description=wuth+Luhn%27s+Algoritm&md=1&showWatermark=1&fontSize=100px&images=https%3A%2F%2Fwww.php.net%2Fimages%2Flogos%2Fnew-php-logo.svg)
 
 [![Stable Version][badge_stable]][link_packagist]
 [![Total Downloads][badge_downloads]][link_packagist]
