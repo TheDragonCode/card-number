@@ -1,6 +1,9 @@
 # Card Number using Luhn's algorithm
 
-![Luhn-algorithm card-number](https://banners.beyondco.de/Card%20Number.png?theme=light&packageManager=composer+require&packageName=dragon-code%2Fcard-number&pattern=topography&style=style_2&description=wuth+Luhn%27s+Algoritm&md=1&showWatermark=1&fontSize=100px&images=https%3A%2F%2Fwww.php.net%2Fimages%2Flogos%2Fnew-php-logo.svg)
+<picture>
+    <source media="(prefers-color-scheme: dark)" srcset="https://banners.beyondco.de/Card%20Number.png?theme=dark&pattern=topography&style=style_2&fontSize=100px&images=https%3A%2F%2Fwww.php.net%2Fimages%2Flogos%2Fnew-php-logo.svg&packageManager=composer+require&packageName=dragon-code%2Fcard-number&description=Generation+and+verification+of+card+numbers+using+Luhn%27s+algorithm.">
+    <img src="https://banners.beyondco.de/Card%20Number.png?theme=light&pattern=topography&style=style_2&fontSize=100px&images=https%3A%2F%2Fwww.php.net%2Fimages%2Flogos%2Fnew-php-logo.svg&packageManager=composer+require&packageName=dragon-code%2Fcard-number&description=Generation+and+verification+of+card+numbers+using+Luhn%27s+algorithm." alt="Card Number">
+</picture>
 
 [![Stable Version][badge_stable]][link_packagist]
 [![Total Downloads][badge_downloads]][link_packagist]
