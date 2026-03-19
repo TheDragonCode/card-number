@@ -29,7 +29,7 @@ jobs:
                     - pest: "4.0"
                       php: "8.2"
 
-        name: PHP ${{ matrix.php }}
+        name: PHP ${{ matrix.php }}, Pest ${{ matrix.pest }}
 
         steps:
             -   name: Checkout code
@@ -43,7 +43,7 @@ jobs:
                     coverage: none
 
             -   name: Install dependencies
-                run: composer update -W --prefer-dist --no-progress --no-interaction --no-suggest
+                run: composer require pestphp/pest:^${{ matrix.pest }} -W --prefer-dist --no-progress --no-interaction --no-suggest
 
             -   name: Execute tests
                 run: php ./vendor/bin/pest --colors=always
