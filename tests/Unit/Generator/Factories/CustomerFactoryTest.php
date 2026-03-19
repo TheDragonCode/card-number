@@ -14,5 +14,5 @@ it('must be the customer\'s factory', function () {
 
     generatedEquals($factory1, '260-4001-2341', $formatter);
     generatedEquals($factory2, '260-3012-3454', $formatter);
-    generatedEquals($factory3, '260-1123-4561', $formatter);
+    generatedEquals($factory3, '260-1123-4569', $formatter);
 });
