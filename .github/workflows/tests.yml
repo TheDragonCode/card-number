@@ -27,7 +27,7 @@ jobs:
                     coverage: none
 
             -   name: Install dependencies
-                run: composer update --prefer-dist --no-progress --no-interaction --no-suggest
+                run: composer update -W --prefer-dist --no-progress --no-interaction --no-suggest
 
             -   name: Execute tests
                 run: php ./vendor/bin/pest --colors=always
