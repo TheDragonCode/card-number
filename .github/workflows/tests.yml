@@ -11,7 +11,7 @@ jobs:
         strategy:
             fail-fast: true
             matrix:
-                php: [ "8.2", "8.3", "8.4", "8.5" ]
+                php: [ "8.1", "8.2", "8.3", "8.4", "8.5" ]
 
         name: PHP ${{ matrix.php }}
 
@@ -27,29 +27,7 @@ jobs:
                     coverage: none
 
             -   name: Install dependencies
-                run: composer update --prefer-dist --no-progress --no-interaction --no-suggest
-
-            -   name: Execute tests
-                run: php ./vendor/bin/pest --colors=always
-
-    tests_8_1:
-        runs-on: ubuntu-latest
-
-        name: PHP 8.1
-
-        steps:
-            -   name: Checkout code
-                uses: actions/checkout@v6
-
-            -   name: Setup PHP
-                uses: shivammathur/setup-php@v2
-                with:
-                    php-version: 8.1
-                    extensions: curl, mbstring, zip, pcntl, pdo, pdo_sqlite, iconv
-                    coverage: none
-
-            -   name: Install dependencies
-                run: composer require pestphp/pest:2.36.0 phpunit/phpunit:^10.4.2 brianium/paratest:^7.3.2 --prefer-dist --no-progress --no-interaction --no-suggest
+                run: composer update --prefer-dist --no-progress --no-interaction --no-suggest --no-security-blocking
 
             -   name: Execute tests
                 run: php ./vendor/bin/pest --colors=always
