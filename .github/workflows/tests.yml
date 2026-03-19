@@ -12,6 +12,22 @@ jobs:
             fail-fast: true
             matrix:
                 php: [ "8.1", "8.2", "8.3", "8.4", "8.5" ]
+                pest: [ "2.0", "3.0", "4.0"]
+                exclude:
+                    - pest: "2.0"
+                      php: "8.2"
+                    - pest: "2.0"
+                      php: "8.3"
+                    - pest: "2.0"
+                      php: "8.4"
+                    - pest: "2.0"
+                      php: "8.5"
+                    - pest: "3.0"
+                      php: "8.1"
+                    - pest: "4.0"
+                      php: "8.1"
+                    - pest: "4.0"
+                      php: "8.2"
 
         name: PHP ${{ matrix.php }}
 
